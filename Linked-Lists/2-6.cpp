@@ -99,8 +99,4 @@ int main(void ){
         cout << "Palindrome" << endl;
     }
 
-
-
-
-
 }

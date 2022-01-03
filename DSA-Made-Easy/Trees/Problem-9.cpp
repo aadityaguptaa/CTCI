@@ -28,31 +28,27 @@ BSTNode *insert(BSTNode *root, int data){
     return root;
 }
 
-void printReverse(BSTNode *root){
-
-    queue<BSTNode *> que;
-    stack<BSTNode *> st;
-
-    que.push(root);
-
-    while (!que.empty()){
-        BSTNode *temp = que.front();
-        que.pop();
-        st.push(temp);
-
-        if(temp -> left != nullptr){
-            que.push(temp->left);
-        }
-
-        if(temp -> right != nullptr){
-            que.push(temp->right);
-        }
+BSTNode * deleteTree(BSTNode *root){
+    if(root == nullptr){
+        return nullptr;
+    }else{
+        deleteTree(root->left);
+        deleteTree(root->right);
+        root = nullptr;
     }
 
-    while (!st.empty()){
-        cout << st.top()->data << endl;
-        st.pop();
+    return root;
+}
+
+void traverse(BSTNode *root){
+    if(root == nullptr){
+        return;
     }
+    traverse(root->left);
+    cout << root -> data << endl;
+    traverse(root -> right);
+
+
 }
 
 int main(){
@@ -64,5 +60,12 @@ int main(){
     root = insert(root, 4);
     root = insert(root, 5);
 
-    printReverse(root);
+    cout << "Before" << endl;
+    traverse(root);
+
+    root = deleteTree(root);
+
+    cout << "After" << endl;
+    traverse(root);
+
 }

@@ -60,7 +60,5 @@ int main(void){
     root1 = insert(root1, 20);
     int ans = 0;
     diameterOfTree(root1, &ans);
-
     cout << ans << endl;
-
 }

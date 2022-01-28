@@ -32,6 +32,7 @@ BSTNode *BSTtoDLL(BSTNode *root){
         return nullptr;
     }
 
+    //We are doing inorder traversal because it omits sorted elements of a binary search tree
     BSTtoDLL(root -> left);
 
     if(head == nullptr){
